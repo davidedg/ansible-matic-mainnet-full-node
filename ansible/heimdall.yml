@@ -6,6 +6,7 @@
   loop:
     - "{{ work_dir }}"
     - "{{ build_dir }}"
+    - "{{ build_dir }}/heimdall"
 
 - name: create heimdall datadir
   file:
@@ -41,7 +42,7 @@
 
 - name: init heimdall
   shell: >
-    docker run -it -v {{ heimdall_data_dir }}/heimdall:/root/.heimdalld
+    docker run -it -v {{ heimdall_data_dir }}:/root/.heimdalld
     heimdall:latest
     heimdalld init
     > heimdall_init

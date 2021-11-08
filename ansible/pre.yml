@@ -8,6 +8,9 @@
     update_cache: yes
 
 - name: install pip packages
+  environment:
+    LANG: "C.UTF-8"
+    LC_ALL: "C.UTF-8"
   pip:
     name:
       - ansible

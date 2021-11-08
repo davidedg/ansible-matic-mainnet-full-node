@@ -1,10 +1,11 @@
 ---
 - name: create bor datadir
   file:
-    path:
-      - "{{ bor_data_dir }}"
-      - "{{ build_dir }}"
+    path: "{{ item }}"
     state: directory
+  loop:
+    - "{{ bor_data_dir }}"
+    - "{{ build_dir }}"
 
 - name: checkout bor
   git:
