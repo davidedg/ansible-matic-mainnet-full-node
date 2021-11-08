@@ -14,11 +14,11 @@
     heimdall_amqp_url: "amqp://guest:guest@rabbitmq:5672"
     heimdall_moniker: polygon-moniker
     heimdall_snapshots_dir: /data/build/snapshots/heimdall
-    heimdall_snapshot_url: https://matic-blockchain-snapshots.s3.amazonaws.com/matic-mainnet/heimdall-snapshot-2021-04-26.tar.gz
+    heimdall_snapshot_url: https://matic-blockchain-snapshots.s3-accelerate.amazonaws.com/matic-mainnet/heimdall-snapshot-2021-11-02.tar.gz
     heimdall_snapshot_md5sum: 0d86cc4455b4bd0235e05b535cdb8557
 
     bor_snapshots_dir: /data/build/snapshots/bor
-    bor_snapshot_url: https://matic-blockchain-snapshots.s3.amazonaws.com/matic-mainnet/bor-fullnode-snapshot-2021-05-20.tar.gz
+    bor_snapshot_url: https://matic-blockchain-snapshots.s3-accelerate.amazonaws.com/matic-mainnet/bor-pruned-snapshot-2021-11-07.tar.gz
     bor_snapshot_md5sum: c9e6139a87723e21ee300e2210ed338c
 
     bor_data_dir: /data/vol/bor
