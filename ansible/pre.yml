@@ -5,6 +5,7 @@
       - git
       - python3-pip
       - sshpass
+      - pigz
     update_cache: yes
 
 - name: install pip packages
