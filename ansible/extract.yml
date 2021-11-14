@@ -60,9 +60,17 @@
     - bor_compose.stat.exists
 
 - name: extract heimdall snapshot
-  shell: tar -xzvf {{ heimdall_snapshot_file.path }} -C {{ heimdall_data_dir}}/data
+  unarchive:
+    src: "{{ heimdall_snapshot_file.path }}"
+    dest: "{{ heimdall_data_dir }}/data"
+    remote_src: yes
+    extra_opts: ["--use-compress-program=pigz"]
   when: extract_heimdall_snapshot == 'true'
 
 - name: extract bor snapshot
-  shell: tar -xzvf {{ bor_snapshot_file.path }} -C {{ bor_data_dir }}/bor/chaindata
+  unarchive:
+    src: "{{ bor_snapshot_file.path }}"
+    dest: "{{ bor_data_dir }}/bor/chaindata"
+    remote_src: yes
+    extra_opts: ["--use-compress-program=pigz"]
   when: extract_bor_snapshot == 'true'
