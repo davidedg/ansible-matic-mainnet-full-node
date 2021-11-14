@@ -25,6 +25,11 @@
     - debug: var=bor_snapshot_file
   when: extract_bor_snapshot == 'true'
 
+- name: check if the heimdall docker-compose file exists
+  stat:
+    path: "{{ build_dir }}/heimdall/docker-compose.yml"
+  register: heimdall_compose
+
 - name: stop heimdall docker-compose services
   shell: docker-compose down
   args:
@@ -33,7 +38,14 @@
     - compose
     - docker
     - heimdall
-  when: extract_heimdall_snapshot == 'true'
+  when: 
+    - extract_heimdall_snapshot == 'true'
+    - heimdall_compose.stat.exists
+
+- name: check if the bor docker-compose file exists
+  stat:
+    path: "{{ build_dir }}/bor/docker-compose.yml"
+  register: bor_compose
 
 - name: stop bor docker-compose services
   shell: docker-compose down
@@ -43,7 +55,9 @@
     - compose
     - docker
     - bor
-  when: extract_bor_snapshot == 'true'
+  when: 
+    - extract_bor_snapshot == 'true'
+    - bor_compose.stat.exists
 
 - name: extract heimdall snapshot
   shell: tar -xzvf {{ heimdall_snapshot_file.path }} -C {{ heimdall_data_dir}}/data
