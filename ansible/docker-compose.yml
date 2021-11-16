@@ -1,4 +1,8 @@
 ---
+- name: create docker network
+  community.docker.docker_network:
+    name: "{{ docker_network_name }}"
+
 - name: create docker-compose for heimdall
   template:
     src: templates/docker-compose-heimdall.j2

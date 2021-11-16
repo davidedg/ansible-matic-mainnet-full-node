@@ -44,3 +44,8 @@ services:
       - --chain-id=137
       - --laddr=tcp://0.0.0.0:1317
       - --node=tcp://heimdalld:26657
+
+networks:
+  default:
+    external:
+      name: {{ docker_network_name }}

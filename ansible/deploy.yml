@@ -28,13 +28,14 @@
 
     sync_status_url: http://localhost:26657/status
 
-    download_heimdall_snapshot: 'true'
-    download_bor_snapshot: 'true'
-    extract_heimdall_snapshot: 'true'
-    extract_bor_snapshot: 'true'
+    download_heimdall_snapshot: 'false'
+    download_bor_snapshot: 'false'
+    extract_heimdall_snapshot: 'false'
+    extract_bor_snapshot: 'false'
 
     heimdall_snapshot_file: heimdall-snapshot-2021-11-02.tar.gz
     bor_snapshot_file: bor-pruned-snapshot-2021-11-10.tar.gz
+    docker_network_name: polygon
 
   tasks:
     - include: pre.yml
