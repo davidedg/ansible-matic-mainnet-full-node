@@ -13,7 +13,7 @@ services:
         - "30303:30303/udp" # Peers (UDP)
     command:
         - bor
-        - --syncmode=snap
+        - --syncmode=full
         - --datadir=/datadir
         - --networkid=137
         - --bor.heimdall=http://heimdallr:1317
@@ -22,13 +22,13 @@ services:
         - --http
         - --http.addr=0.0.0.0
         - --http.port=8545
-        - --http.api=eth,net,web3,admin,debug,bor
+        - --http.api=eth,net,web3,admin,txpool,debug,bor
         - --http.corsdomain=*
         - --http.vhosts=*
         - --ws
         - --ws.addr=0.0.0.0
         - --ws.port=8545
-        - --ws.api=eth,net,web3,admin,debug,bor
+        - --ws.api=eth,net,web3,admin,txpool,debug,bor
         - --ws.origins=*
         - --ipcdisable
         - --nousb
